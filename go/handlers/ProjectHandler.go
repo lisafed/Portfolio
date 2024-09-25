@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func IndexHandler(w http.ResponseWriter, r *http.Request) {
+func projectHandlers(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles("./src/html/index.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
