@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body class="light-mode">
+<!-- En-tête avec navigation -->
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Mon Portfolio</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">À Propos</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#testimonials">Témoignages</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle">Mode Sombre</button>
+        <script src="../js/index.js"></script>
+    </nav>
+</header>
+
+<!-- Section d'accueil (Hero) -->
+<section id="hero" class="hero-section">
+    <div class="hero-content">
+        <h2>Bienvenue sur mon portfolio</h2>
+        <p>Je suis un développeur passionné, spécialisé en développement Full Stack.</p>
+        <a href="#about" class="btn-primary">Découvrir Plus</a>
+    </div>
+</section>
+<div class="trait_dessus"><hr>
+<!-- Section À propos -->
+<section id="about" class="about-section">
+    <h2>À Propos de Moi</h2>
+    <p>
+        Avec plusieurs années d'expérience dans le développement web, je maîtrise diverses technologies
+        et langages de programmation. Mon objectif est de créer des solutions efficaces et intuitives.
+    </p>
+    <div class="skills">
+        <h3>Compétences :</h3>
+        <ul>
+            <li>JavaScript, React, Vue.js</li>
+            <li>Go, Node.js</li>
+            <li>HTML5, CSS3, SASS</li>
+            <li>Docker, Kubernetes</li>
+        </ul>
+    </div>
+</section>
+    <div class="trait_dessus"><hr>
+<!-- Section Projets -->
+<section id="projects" class="projects-section">
+    <h2>Mes Projets</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <img src="https://source.unsplash.com/400x300/?web" alt="Projet 1">
+            <h3>Projet 1</h3>
+            <p>Application web Full Stack utilisant Go et React.</p>
+        </div>
+        <div class="project-card">
+            <img src="https://source.unsplash.com/400x300/?code" alt="Projet 2">
+            <h3>Projet 2</h3>
+            <p> Site e-commerce développé avec Vue.js et Node.js.</p>
+        </div>
+        <div class="project-card">
+            <img src="https://www.logo-voiture.com/wp-content/uploads/2021/01/Logo-Alpine.png" alt="Projet 3">
+            <h3>Projet 3</h3>
+            <p>API REST performante construite en Go.</p>
+        </div>
+    </div>
+</section>
+        <div class="trait_dessus"><hr>
+
+<!-- Section Témoignages -->
+<section id="testimonials" class="testimonials-section">
+    <h2>Témoignages</h2>
+    <div class="testimonials-grid">
+        <div class="testimonial">
+            <p class="choicecolor">"Le meilleur développeur avec qui j'ai travaillé ! Toujours à l'écoute et très réactif."</p>
+            <h4>- Jean Dupont</h4>
+        </div>
+        <div class="testimonial">
+            <p class="choicecolor">"Un travail d'une qualité exceptionnelle. Je recommande vivement pour tous types de projets web."</>
+            <h4>- Marie Laurent</h4>
+        </div>
+    </div>
+</section>
+            <div class="trait_dessus"><hr>
+
+<!-- Section Contact -->
+<section id="contact" class="contact-section">
+    <h2>Contactez-moi</h2>
+    <form action="#" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Votre nom" required>
+        <input type="email" name="email" placeholder="Votre email" required>
+        <textarea name="message" placeholder="Votre message" required></textarea>
+        <button type="submit" class="btn-primary">Envoyer</button>
+    </form>
+</section>
+
+<!-- Pied de page -->
+<footer>
+    <p>&copy; 2023 Mon Portfolio. Tous droits réservés.</p>
+</footer>
+
+<script src="../js/index.js"></script>
+</body>
+</html>
