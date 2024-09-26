@@ -6,7 +6,7 @@ import (
 )
 
 func ProjectHandlers(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("./src/html/index.html")
+	tmpl, err := template.ParseFiles("./src/html/project.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

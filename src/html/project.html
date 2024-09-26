@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="../css/project.css">
+</head>
+<!-- En-tête avec navigation -->
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Mon Portfolio</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">À Propos</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#testimonials">Témoignages</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle">Mode Sombre</button>
+    </nav>
+</header>
+
+<!-- Section d'accueil (Hero) -->
+<section id="hero" class="hero-section">
+    <div class="hero-content">
+        <h2>Bienvenue sur mon portfolio</h2>
+        <p>Je suis un développeur passionné, spécialisé en développement Full Stack.</p>
+        <a href="#about" class="btn-primary">Découvrir Plus</a>
+    </div>
+</section>
+
+<hr class="trait_dessus"></hr>
+<!-- Section project -->
+<section id="projects" class="projects-section">
+    <h2>Mes Projets</h2>
+    <div class="projects-grid">
+        <!-- Projets statiques -->
+        <div class="project-card">
+            <img src="https://source.unsplash.com/400x300/?web" alt="Projet 1">
+            <h3>Projet 1</h3>
+            <p>Application web Full Stack utilisant Go et React.</p>
+        </div>
+
+        <!-- Projets dynamiques rendus par le serveur Go -->
+        {{range .}}
+        <div class="project-card post-preview" onclick="window.location.href='/post/{{.ID}}'">
+            <h3>{{.Title}}</h3>
+            <p>{{.Text}}</p>
+        </div>
+        {{else}}
+        <p>No posts available.</p>
+        {{end}}
+    </div>
+</section>
+
+
+<!-- Section À propos -->
+
+
+<hr class="trait_dessus"></hr>
+
+<!-- Section Projets -->
+<section id="projects" class="projects-section">
+    <h2>Mes Projets</h2>
+    <div class="projects-grid">
+        <!-- Vos projets ici -->
+    </div>
+</section>
+
+<hr class="trait_dessus"></hr>
+
+
+
+<footer>
+    <p>&copy; 2023 Mon Portfolio. Tous droits réservés.</p>
+    <script src="../js/index.js"></script>
+
+</footer>
+
