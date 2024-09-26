@@ -24,3 +24,8 @@ type Projet struct {
 	LienRepo  string
 	Langage   string
 }
+type Utilisateur struct {
+	ID             int
+	NomUtilisateur string
+	MotDePasse     string
+}
