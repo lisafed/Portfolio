@@ -5,8 +5,8 @@ import (
 	"net/http"
 )
 
-func ProjectHandlers(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("./src/html/index.html")
+func FormationHandler(w http.ResponseWriter, r *http.Request) {
+	tmpl, err := template.ParseFiles("./src/html/formation.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

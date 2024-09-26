@@ -5,8 +5,8 @@ import (
 	"net/http"
 )
 
-func ProjectHandlers(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("./src/html/index.html")
+func ExperienceHandler(w http.ResponseWriter, r *http.Request) {
+	tmpl, err := template.ParseFiles("./src/html/exphtml")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -17,4 +17,5 @@ func ProjectHandlers(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	return
 }

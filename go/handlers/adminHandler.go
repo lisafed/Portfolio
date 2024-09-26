@@ -5,16 +5,18 @@ import (
 	"net/http"
 )
 
-func ProjectHandlers(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("./src/html/index.html")
+func AdminHandler(w http.ResponseWriter, r *http.Request) {
+	tmpl, err := template.ParseFiles("./src/html/tthtml")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	//bcrypt.GenerateFromPassword()
 
 	err = tmpl.Execute(w, nil)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	return
 }
