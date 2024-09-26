@@ -23,3 +23,5 @@ themeToggleButton.addEventListener('click', function() {
         localStorage.setItem('theme', 'light-mode'); // Enregistrer le thème dans localStorage
     }
 });
+
+
