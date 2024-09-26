@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="../css/login.css">
+</head>
+<body class="light-mode">
+<!-- En-tête avec navigation -->
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Mon Portfolio</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html#about">À Propos</a></li>
+            <li><a href="index.html#projects">Projets</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="login.html" class="btn-login active">Connexion</a></li> <!-- Bouton Connexion -->
+        </ul>
+        <button id="theme-toggle" class="theme-toggle">Mode Sombre</button>
+    </nav>
+</header>
+
+<!-- Section de Connexion -->
+<section class="login-section">
+    <div class="login-container">
+        <h2>Connexion</h2>
+        <form action="#" method="POST" class="login-form">
+            <input type="email" name="email" placeholder="Votre email" required>
+            <input type="password" name="password" placeholder="Votre mot de passe" required>
+            <button type="submit" class="btn-primary">Se Connecter</button>
+        </form>
+    </div>
+</section>
+
+<!-- Pied de page -->
+<footer>
+    <p>&copy; 2023 Mon Portfolio. Tous droits réservés.</p>
+</footer>
+
+<script src="../js/index.js"></script>
+</body>
+</html>
