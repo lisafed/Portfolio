@@ -5,13 +5,13 @@ import (
 	"log"
 )
 
-var dbname = "./assets/db/forum.db"
+var dbname = "./Portfolio./Portfolio.db"
+
+//var DB = LoadDb()
 
 type DBPortfolio struct {
 	core *sql.DB
 }
-
-//var DB = LoadDb()
 
 func LoadDb() DBPortfolio {
 	dbIn, err := sql.Open("sqlite3", dbname)
