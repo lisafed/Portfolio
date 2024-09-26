@@ -16,13 +16,19 @@ func main() {
 		core: http.NewServeMux(),
 		port: 8080,
 	}
-
 	server.Router()
 	server.Launch()
 }
 
 func (s *webserver) Router() {
-	s.core.HandleFunc("/index", handlers.IndexHandler)
+	s.core.HandleFunc("/", handlers.IndexHandler)
+	s.core.HandleFunc("/login", handlers.LoginHandler)
+	s.core.HandleFunc("/project/{id}", handlers.ProjectHandlers)
+	s.core.HandleFunc("/project/", handlers.ProjectHandlers)
+	s.core.HandleFunc("/experience/{id}", handlers.ExperienceHandler)
+	s.core.HandleFunc("/experience/", handlers.ExperienceHandler)
+	s.core.HandleFunc("/formation/", handlers.FormationHandler)
+	s.core.HandleFunc("/{notfound}", handlers.PageNotFoundHandler)
 
 	s.core.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("./src/css"))))
 	s.core.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("./src/img"))))
