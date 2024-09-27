@@ -11,8 +11,9 @@ func ProjectHandlers(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	UserLogged.DataProject, err = db.GetProjets()
 
-	err = tmpl.Execute(w, nil)
+	err = tmpl.Execute(w, UserLogged)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

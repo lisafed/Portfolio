@@ -3,13 +3,11 @@ package handlers
 import (
 	"html/template"
 	"net/http"
+	"portfolio/go/dbFunc"
 )
 
-type UserData struct {
-	IsUserLogged bool
-}
-
-var UserLogged = UserData{IsUserLogged: false}
+var UserLogged = Data{IsUserLogged: false}
+var db = dbFunc.LoadDb()
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles("./src/html/index.html")
