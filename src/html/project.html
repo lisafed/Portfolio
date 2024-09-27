@@ -48,10 +48,9 @@
         </div>
 
         <!-- Projets dynamiques rendus par le serveur Go -->
-        {{range .}}
+        {{range .DataProject}}
         <div class="project-card post-preview" onclick="window.location.href='/post/{{.ID}}'">
-            <h3>{{.Title}}</h3>
-            <p>{{.Text}}</p>
+            <h3>{{.NomProjet}}</h3>
         </div>
         {{else}}
         <p>No posts available.</p>

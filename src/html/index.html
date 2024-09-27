@@ -21,7 +21,10 @@
             <li><a href="#contact">Contact</a></li>
             <li><a href="/experience/" class="btn-experience">Experience</a></li>
             <li><a href="/formation/" class="btn-formation">Formation</a></li>
+            {{ if not .IsUserLogged }}
             <li><a href="/login" class="btn-login">Connexion</a></li> <!-- Bouton Connexion -->
+            {{ else }}
+            {{ end }}
         </ul>
         <button id="theme-toggle" class="theme-toggle">Mode Sombre</button>
         <script src="../js/index.js"></script>
