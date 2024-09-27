@@ -17,3 +17,14 @@ func GetUtilisateur(db DBPortfolio, nomUtilisateur string) (*Utilisateur, error)
 	}
 	return &utilisateur, nil
 }
+
+func (db *DBPortfolio) AddUtilisateur(username string, password string) error {
+	stmt, err := db.core.Prepare("INSERT INTO Utilisateur(nom_utilisateur, mot_de_passe) VALUES (?, ?)")
+	if err != nil {
+		return err
+	}
+	defer stmt.Close()
+
+	_, err = stmt.Exec(username, password)
+	return err
+}
