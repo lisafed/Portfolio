@@ -6,7 +6,7 @@ import (
 )
 
 func ExperienceHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("./src/html/exphtml")
+	tmpl, err := template.ParseFiles("./src/html/experience.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
