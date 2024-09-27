@@ -48,11 +48,12 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 
 	if sessErr == nil {
 		if !UserSession[userCookie.Value] {
+			// Delete the cookie for the user if it doesn't exist in the map
 			http.SetCookie(w, &http.Cookie{
 				Name:   "adminSession",
 				Value:  userCookie.Value,
 				Path:   "/",
-				MaxAge: -1, // Set the expiration time to 1800 seconds (30 minutes)
+				MaxAge: -1, // Set the time to -1
 			})
 		}
 		if UserSession[userCookie.Value] {
