@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio - Administration</title>
+    <link rel="stylesheet" href="../css/Admin.css">
+</head>
+
+<body class="light-mode">
+    <!-- En-tête avec navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Mon Portfolio</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">À Propos</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#testimonials">Témoignages</a></li>
+                <li><a href="#contact">Contact</a></li>
+                {{ if not .IsUserLogged}}
+                <li><a href="/login" class="btn-login">Connexion</a></li>
+                {{ else }}
+                {{ end }}
+            </ul>
+            <button id="theme-toggle" class="theme-toggle">Mode Sombre</button>
+            <script src="Admin.js"></script>
+        </nav>
+    </header>
+    <section class ="admin-page">
+        <ul class="list-admin">
+            <li id="title-list">Menu</li>
+            <li><i class="uni-user">&#xf13d;</i><a href="../html/Admin-Experience.html" class="experience">Experience</a></li>
+            <li><i class="uni-user">&#xf13d;</i><a href="../html/Admin-Projet.html">Projets</a></li>
+            <li><i class="uni-user">&#xf13d;</i><a href="../html/Admin-Formation.html">Formations</a></li>
+        </ul>
+        <div class="Modif">
+            {{ range .UnitDataExperience}}
+             <!-- Modification des expériences -->
+             <div class="modif-experience">
+                <form method="post">
+                    <p>Expérience</p>
+                    {{.Nom}}
+                    <label for="">Nom :</label><br>
+                    <input type="text" name="nom" id="experience-input"  value="{{.ID}}" placeholder="Nouveau nom"><br>
+                    <label for="">Entreprise :</label><br>
+                    <input type="text" name="entreprise" id="experience-input" value="{{.Entreprise}}" placeholder="Nouvelle Entreprise"><br>
+                    <label for="">Poste :</label><br>
+                    <input type="text" name="poste" id="experience-input" value="{{.Poste}}" placeholder="Nouveau Poste"><br>
+                    <label for="">Date de Début :</label><br>
+                    <input type="date" name="dateDebut" id="experience-input" value="DateDebut" placeholder="Nouvelle date"><br>
+                    <label for="">Date de Fin :</label><br>
+                    <input type="date" name="dateFin" id="experience-input" value="DateDeFin" placeholder="Nouvelle date"><br>
+                    <input type="submit" value="Post" class="custom-button">         
+                </form>
+            </div>
+            {{ else }}
+            {{ end }}
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2023 Mon Portfolio. Tous droits réservés.</p>
+    </footer>
+    <script src="../js/admin.js"></script>
+</body>
+
+</html>

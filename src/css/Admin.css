@@ -1,0 +1,190 @@
+/* Style général */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Prendre toute la hauteur */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Mode clair par défaut */
+.light-mode {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Mode sombre */
+.dark-mode {
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+}
+
+/* Style du header */
+header {
+    background-color: #333;
+    color: white;
+    width: 100%;
+}
+
+/* Style du navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem; /* Espacement interne du contenu */
+}
+
+/* Liens de navigation */
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Changement d'état au survol des liens */
+.nav-links li a:hover {
+    text-decoration: underline;
+}
+
+/* Bouton de basculement du thème */
+.theme-toggle {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.theme-toggle:hover {
+    background-color: #0056b3;
+}
+
+/* Contenu de la page admin */
+.admin-page {
+    display: flex;
+    flex: 1;
+}
+
+/* Menu de gauche (panel admin) */
+.list-admin {
+    list-style-type: none;
+    padding: 20px;
+    width: 250px; /* Largeur fixe */
+    background-color: #1c1c1c;
+    color: white;
+    height: 100%; /* Prend toute la hauteur */
+    margin: 0; /* Retirer toute marge */
+}
+
+/* Éléments du menu */
+.list-admin li {
+    padding: 10px 0;
+}
+
+/* Contenu à droite (modification du portfolio) */
+.Modif {
+    background-color: #f0f0f0;
+    flex: 1; /* Prend le reste de l'espace */
+    padding: 20px;
+}
+
+/* Couleurs spécifiques en mode sombre pour les sections */
+.dark-mode .list-admin {
+    background-color: #333;
+}
+
+.dark-mode .Modif {
+    background-color: #222;
+}
+
+/* Modale */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Bouton personnalisé */
+.custom-button {
+    display: inline-block;
+    background-color: #1555df;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-decoration: none;
+    margin-top: 0.6rem;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Positionnement du bouton "Ajouter une expérience" */
+.btn-post {
+    position: absolute;
+    margin: -0.5rem 2rem 2rem 2rem !important;
+}
+
+/* Aperçu de l'expérience */
+.experience-preview {
+    border: 1px solid #ccc;
+    padding: 0.2rem 0.6rem;
+    margin: 0.6rem;
+    cursor: pointer;
+}
+
+.experience-preview:hover {
+    background-color: #f0f0f0;
+}
+
+/* Pied de page */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    margin-top: auto; /* S'assure qu'il reste en bas */
+}
