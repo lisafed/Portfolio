@@ -15,13 +15,15 @@
                 <h1>Mon Portfolio</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="#about">À Propos</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#testimonials">Témoignages</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="../../../#about">À Propos</a></li>
+                <li><a href="../../../#project">Projets</a></li>
+                <li><a href="../../../#testimonials">Témoignages</a></li>
+                <li><a href="../../../#contact">Contact</a></li>
+                <li><a href="../../../experience/">Experience</a></li>
                 {{ if not .IsUserLogged }}
                 <li><a href="/login" class="btn-login">Connexion</a></li>
                 {{ else }}
+                <li><a href="/admin" class="btn-formation">Admin</a></li>
                 {{ end }}
             </ul>
             <button id="theme-toggle" class="theme-toggle">Mode Sombre</button>
@@ -46,9 +48,9 @@
                         <input name="formation" placeholder="{{.DataFormation.Formation}}"required></input><br>
                         <label for="etablissement">Etablissement :</label><br>
                         <input type="text" name="etablissement" placeholder="{{.DataFormation.Etablissement}}"><br>
-                        <label for="poste">Date de début :</label><br>
+                        <label for="poste"> Nouvelle Date de début : <i> Ancienne Date de début : {{ .DataFormation.DateDebut}}</i></label><br>
                         <input type="date" name="dateDeDebut" placeholder="{{.DataFormation.DateDebut}}"><br>
-                        <label for="poste">Date de fin :</label><br>
+                        <label for="poste"> Nouvelle Date de fin : <i> Ancienne Date de fin : {{ .DataFormation.DateFin}}</i></label><br>
                         <input type="date" name="dateDeFin" placeholder="{{.DataFormation.DateFin}}"><br>
                         <input type="submit" value="Modifier" name="editbutton" class="custom-button"><br>
                     </form>

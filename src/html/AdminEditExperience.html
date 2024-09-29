@@ -15,13 +15,15 @@
                 <h1>Mon Portfolio</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="#about">À Propos</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#testimonials">Témoignages</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="../../../#about">À Propos</a></li>
+                <li><a href="../../../#project">Projets</a></li>
+                <li><a href="../../../#testimonials">Témoignages</a></li>
+                <li><a href="../../../#contact">Contact</a></li>
+                <li><a href="../../../experience/">Experience</a></li>
                 {{ if not .IsUserLogged }}
                 <li><a href="/login" class="btn-login">Connexion</a></li>
                 {{ else }}
+                <li><a href="/admin" class="btn-formation">Admin</a></li>
                 {{ end }}
             </ul>
             <button id="theme-toggle" class="theme-toggle">Mode Sombre</button>
@@ -41,15 +43,15 @@
                 <form method="post">
                     <p>Expérience : {{.UnitDataExperience.Nom}}</p>
                     <label for="">Nom :</label><br>
-                    <input type="text" name="nom" id="experience-input"  placeholder="{{.UnitDataExperience.Nom}}" required><br>
+                    <input type="text" name="nom" placeholder="{{.UnitDataExperience.Nom}}" required><br>
                     <label for="">Entreprise :</label><br>
-                    <input type="text" name="entreprise" id="experience-input" placeholder="{{.UnitDataExperience.Entreprise}}" required><br>
+                    <input type="text" name="entreprise" placeholder="{{.UnitDataExperience.Entreprise}}" required><br>
                     <label for="">Poste :</label><br>
-                    <input type="text" name="poste" id="experience-input"  placeholder="{{.UnitDataExperience.Poste}}" required><br>
-                    <label for="">Date de Début :</label><br>
-                    <input type="date" name="dateDebut" id="experience-input" placeholder="" required><br>
-                    <label for="">Date de Fin :</label><br>
-                    <input type="date" name="dateFin" id="experience-input" placeholder="" required><br>
+                    <input type="text" name="poste" placeholder="{{.UnitDataExperience.Poste}}" required><br>
+                    <label for="">Date de Début : <i> Ancienne Date de début : {{ .UnitDataExperience.DateDebut}}</i></label><br>
+                    <input type="date" name="dateDebut" required><br>
+                    <label for="">Date de Fin : <i> Ancienne Date de fin : {{ .UnitDataExperience.DateFin}}</i></label><br>
+                    <input type="date" name="dateFin"  required><br>
                     <input type="submit" value="Modifier" name="editbutton" class="custom-button">
                 </form>
                 <form method="post">

@@ -15,27 +15,27 @@
                 <h1>Mon Portfolio</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="#about">À Propos</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#testimonials">Témoignages</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="../../#about">À Propos</a></li>
+                <li><a href="../../#project">Projets</a></li>
+                <li><a href="../../#testimonials">Témoignages</a></li>
+                <li><a href="../../#contact">Contact</a></li>
+                <li><a href="../../experience/">Experience</a></li>
                 {{ if not .IsUserLogged }}
                 <li><a href="/login" class="btn-login">Connexion</a></li>
                 {{ else }}
+                <li><a href="/admin" class="btn-formation">Admin</a></li>
                 {{ end }}
             </ul>
             <button id="theme-toggle" class="theme-toggle">Mode Sombre</button>
         </nav>
     </header>
-
     <section class="admin-page">
         <ul class="list-admin">
             <li id="title-list">Menu</li>
-            <li><a href="/admin/experience" class="experience">Experience</a></li>
+            <li><a href="/admin/experience">Experience</a></li>
             <li><a href="/admin/project">Projets</a></li>
             <li><a href="/admin/formation">Formations</a></li>
         </ul>
-        
         <div class="Modif">
             <h1>Modification des formations<button id="post-button" class="custom-button btn-post">Ajouter une formation </button></h1> 
             <h1>Mes Formations :</h1>
@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <!-- Affichage des expériences -->
+            <!-- Affichage des formations -->
             <div id="posts-container">
                 {{range .DataFormationList}}
                 <div class="experience-preview" onclick="window.location.href='/admin/formation/{{.ID}}'">

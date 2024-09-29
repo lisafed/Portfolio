@@ -21,7 +21,11 @@
             <li><a href="/">Contact</a></li>
             <li><a href="/experience/" class="btn-experience">Experience</a></li>
             <li><a href="/formation/" class="btn-formation">Formation</a></li>
-            <li><a href="/login" class="btn-login">Connexion</a></li> <!-- Bouton Connexion -->
+            {{ if not .IsUserLogged }}
+            <li><a href="/login" class="btn-login">Connexion</a></li>
+            {{ else }}
+            <li><a href="/admin" class="btn-formation">Admin</a></li>
+            {{ end }} 
         </ul>
         <button id="theme-toggle" class="theme-toggle">Mode Sombre</button>
     </nav>
@@ -31,52 +35,20 @@
 <section id="experience" class="experience-section">
 
     <h2>Mes Formations</h2>
-
-    <!-- Formation 1 -->
-    <div class="formation-card">
-        <h3>Master en Informatique - Université Paris-Saclay</h3>
-        <p><strong>Années :</strong> 2016 - 2018</p>
-        <p>
-            Durant ce Master, j'ai approfondi mes connaissances en systèmes distribués, intelligence artificielle et
-            développement de logiciels. J'ai mené des projets de recherche sur l'optimisation des réseaux neuronaux.
-        </p>
+    
+    {{ range .DataFormationList}}
+    <div class="experience-card">
+        <h3>{{ .Nom}} - </h3>
+        <p><strong>Durée :</strong> {{.DateDebut}} -  {{.DateFin}} </p>
+        <p><strong>Formation :</strong> {{.Formation}}</p>
+        <p><strong>Etablissement :</strong> {{.Etablissement}}</p>
     </div>
-
+    
     <div class="trait_dessus"><hr></div>
-
-    <!-- Formation 2 -->
-    <div class="formation-card">
-        <h3>Licence en Informatique - Université de Lille</h3>
-        <p><strong>Années :</strong> 2013 - 2016</p>
-        <p>
-            J'ai acquis des compétences solides en algorithmique, structures de données, et programmation orientée objet.
-            Cette formation m'a permis de maîtriser divers langages comme Java, C++, et Python.
-        </p>
-    </div>
-
+    {{else}}
+    <p>Aucune Experience pour le moment</p> 
     <div class="trait_dessus"><hr></div>
-
-    <!-- Formation 3 -->
-    <div class="formation-card">
-        <h3>Formation en Développement Web - OpenClassrooms</h3>
-        <p><strong>Années :</strong> 2019</p>
-        <p>
-            Formation intensive sur les technologies web modernes (HTML, CSS, JavaScript, et frameworks front-end).
-            J'ai développé plusieurs projets complets allant du design à l'implémentation de sites web dynamiques.
-        </p>
-    </div>
-
-    <div class="trait_dessus"><hr></div>
-
-    <!-- Formation 4 -->
-    <div class="formation-card">
-        <h3>Certification Google Cloud Engineer</h3>
-        <p><strong>Année :</strong> 2020</p>
-        <p>
-            Formation et certification spécialisée en ingénierie cloud avec Google Cloud Platform (GCP), couvrant
-            des sujets tels que la gestion des infrastructures, la sécurité des données et le machine learning.
-        </p>
-    </div>
+    {{end}}
 
 </section>
 

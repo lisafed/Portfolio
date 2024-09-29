@@ -20,7 +20,11 @@
             <li><a href="/">Contact</a></li>
             <li><a href="/experience/" class="btn-experience">Experience</a></li>
             <li><a href="/formation/" class="btn-formation">Formation</a></li>
-            <li><a href="/login" class="btn-login">Connexion</a></li> <!-- Bouton Connexion -->
+            {{ if not .IsUserLogged }}
+                <li><a href="/login" class="btn-login">Connexion</a></li>
+                {{ else }}
+                <li><a href="/admin" class="btn-formation">Admin</a></li>
+                {{ end }}
         </ul>
         <button id="theme-toggle" class="theme-toggle">Mode Sombre</button>
     </nav>
@@ -31,7 +35,7 @@
     <div class="hero-content">
         <h2>Bienvenue sur mon portfolio</h2>
         <p>Je suis un développeur passionné, spécialisé en développement Full Stack.</p>
-        <a href="#about" class="btn-primary">Découvrir Plus</a>
+        <a href="../#about" class="btn-primary">Découvrir Plus</a>
     </div>
 </section>
 
@@ -40,20 +44,13 @@
 <section id="projects" class="projects-section">
     <h2>Mes Projets</h2>
     <div class="projects-grid">
-        <!-- Projets statiques -->
-        <div class="project-card">
-            <img src="https://source.unsplash.com/400x300/?web" alt="Projet 1">
-            <h3>Projet 1</h3>
-            <p>Application web Full Stack utilisant Go et React.</p>
-        </div>
-
-        <!-- Projets dynamiques rendus par le serveur Go -->
         {{range .DataProjectList}}
-        <div class="project-card post-preview" onclick="window.location.href='/post/{{.ID}}'">
-            <h3>{{.NomProjet}}</h3>
+        <div class="project-card post-preview">
+            <h3>{{ .NomProjet}} - {{ .Langage}}</h3> 
+            <p><strong>Lien du Repo :</strong> {{.LienRepo}}</p>
         </div>
         {{else}}
-        <p>No posts available.</p>
+        <p>Aucun projet pour le moment</p> 
         {{end}}
     </div>
 </section>

@@ -15,13 +15,15 @@
                 <h1>Mon Portfolio</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="#about">À Propos</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#testimonials">Témoignages</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="../../#about">À Propos</a></li>
+                <li><a href="../../#project">Projets</a></li>
+                <li><a href="../../#testimonials">Témoignages</a></li>
+                <li><a href="../../#contact">Contact</a></li>
+                <li><a href="../../experience/">Experience</a></li>
                 {{ if not .IsUserLogged }}
                 <li><a href="/login" class="btn-login">Connexion</a></li>
                 {{ else }}
+                <li><a href="/admin" class="btn-formation">Admin</a></li>
                 {{ end }}
             </ul>
             <button id="theme-toggle" class="theme-toggle">Mode Sombre</button>
@@ -53,7 +55,7 @@
                     </form>
                 </div>
             </div>
-            <!-- Affichage des expériences -->
+            <!-- Affichage des projets -->
             <div id="posts-container">
                 <h1>Mes Projets :</h1>
                 {{range .DataProjectList}}

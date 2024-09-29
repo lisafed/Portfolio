@@ -25,23 +25,25 @@ body {
 header {
     background-color: #333;
     color: white;
-    width: 100%;
+    padding: 1rem 0;
 }
 
-/* Style du navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem; /* Espacement interne du contenu */
+    padding: 0 2rem ;
 }
 
-/* Liens de navigation */
+.logo h1 {
+    margin: 0;
+}
+
 .nav-links {
     list-style: none;
+    display: flex;
     margin: 0;
     padding: 0;
-    display: flex;
 }
 
 .nav-links li {
@@ -54,9 +56,21 @@ header {
     font-weight: bold;
 }
 
-/* Changement d'état au survol des liens */
 .nav-links li a:hover {
     text-decoration: underline;
+}
+
+.theme-toggle {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.theme-toggle:hover {
+    background-color: #0056b3;
 }
 
 /* Bouton de basculement du thème */

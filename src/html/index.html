@@ -63,21 +63,14 @@
         <section id="projects" class="projects-section">
             <h2>Mes Projets</h2>
             <div class="projects-grid">
+                {{range .DataProjectList}}
                 <div class="project-card">
-                    <img src="https://source.unsplash.com/400x300/?web" alt="Projet 1">
-                    <h3>Projet 1</h3>
-                    <p>Application web Full Stack utilisant Go et React.</p>
+                    <h3>{{ .NomProjet}} - {{ .Langage}}</h3> 
+                    <p><strong>Lien du Repo :</strong> {{.LienRepo}}</p>
                 </div>
-                <div class="project-card">
-                    <img src="https://source.unsplash.com/400x300/?code" alt="Projet 2">
-                    <h3>Projet 2</h3>
-                    <p>Site e-commerce développé avec Vue.js et Node.js.</p>
-                </div>
-                <div class="project-card">
-                    <img src="https://source.unsplash.com/400x300/?api" alt="Projet 3">
-                    <h3>Projet 3</h3>
-                    <p>API REST performante construite en Go.</p>
-                </div>
+                {{else}}
+                <p>Aucun projet pour le moment</p> 
+                {{end}}
             </div>
         </section>
         <div class="trait_dessus"><hr>
