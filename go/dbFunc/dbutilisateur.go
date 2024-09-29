@@ -4,7 +4,7 @@ import (
 	"database/sql"
 )
 
-// Fonction pour récupérer un utilisateur avec son nom d'utilisateur
+// GetUtilisateur is a function used to get the data of a user to check if it exists
 func GetUtilisateur(db DBPortfolio, nomUtilisateur string) (*Utilisateur, error) {
 	var utilisateur Utilisateur
 	query := "SELECT id, nom_utilisateur, mot_de_passe FROM utilisateur WHERE nom_utilisateur = ?"
@@ -18,6 +18,7 @@ func GetUtilisateur(db DBPortfolio, nomUtilisateur string) (*Utilisateur, error)
 	return &utilisateur, nil
 }
 
+// AddUtilisateur is a function used to add a user to the database
 func (db *DBPortfolio) AddUtilisateur(username string, password string) error {
 	stmt, err := db.core.Prepare("INSERT INTO Utilisateur(nom_utilisateur, mot_de_passe) VALUES (?, ?)")
 	if err != nil {

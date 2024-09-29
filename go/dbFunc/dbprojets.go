@@ -2,6 +2,7 @@ package dbFunc
 
 import "database/sql"
 
+// GetProjets is a function used to return all experiences from the database
 func (db DBPortfolio) GetProjets() ([]Projet, error) {
 	rows, err := db.core.Query("SELECT id, nom_projet, lien_repo, langage FROM Projets")
 	if err != nil {
@@ -26,6 +27,7 @@ func (db DBPortfolio) GetProjets() ([]Projet, error) {
 	return projets, nil
 }
 
+// DeleteProject is a function used to delete a project from the database based on the id entered as parameter
 func (db *DBPortfolio) DeleteProject(id int) error {
 	stmt, err := db.core.Prepare("DELETE FROM Projets WHERE id=?")
 	if err != nil {
@@ -37,6 +39,7 @@ func (db *DBPortfolio) DeleteProject(id int) error {
 	return err
 }
 
+// AddProjet is a function used to add a project to the database based on the infos entered as parameter
 func (db *DBPortfolio) AddProjet(proj Projet) error {
 	stmt, err := db.core.Prepare("INSERT INTO Projets (nom_projet, lien_repo, langage) VALUES (?, ?, ?)")
 	if err != nil {
@@ -48,6 +51,7 @@ func (db *DBPortfolio) AddProjet(proj Projet) error {
 	return err
 }
 
+// EditProjet is a function used to edit project based on the new data entered as parameters
 func (db *DBPortfolio) EditProjet(p Projet) error {
 	stmt, err := db.core.Prepare("UPDATE Projets SET nom_projet=?, lien_repo=?, langage=? WHERE id=?")
 	if err != nil {
@@ -59,6 +63,7 @@ func (db *DBPortfolio) EditProjet(p Projet) error {
 	return err
 }
 
+// ReadProjet is a function used to return data of a project based on the id entered as parameter
 func (db *DBPortfolio) ReadProjet(id int) (Projet, error) {
 	var p Projet
 

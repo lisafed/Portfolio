@@ -5,8 +5,11 @@ import (
 	"net/http"
 )
 
+// AdminHandler is function used to handle the admin page
 func AdminHandler(w http.ResponseWriter, r *http.Request) {
+	// Is used to get the cookie from the client and check if he is logged
 	userCookie, cookieErr := r.Cookie("adminSession")
+	// If the user doesn't have a cookie return this error
 	if cookieErr != nil {
 		http.Error(w, "Unauthorized access", http.StatusUnauthorized)
 		return
@@ -18,6 +21,7 @@ func AdminHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// If the user has a cookie deletes it if it doesn't appear in the map
 	if cookieErr == nil {
 		if !UserSession[userCookie.Value] {
 			// Delete the cookie for the user if it doesn't exist in the map
@@ -32,12 +36,13 @@ func AdminHandler(w http.ResponseWriter, r *http.Request) {
 
 	authenticated, ok := UserSession[userCookie.Value]
 
+	// Print an error if the user is not logged
 	if !ok || !authenticated {
 		http.Error(w, "Forbidden access", http.StatusForbidden)
 		return
 	}
 
-	err = tmpl.Execute(w, nil)
+	err = tmpl.Execute(w, UserLogged)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

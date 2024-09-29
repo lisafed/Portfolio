@@ -2,6 +2,7 @@ package dbFunc
 
 import "database/sql"
 
+// DeleteFormation is a function used to delete formation based on the id inserted as a parameter
 func (db *DBPortfolio) DeleteFormation(id int) error {
 	stmt, err := db.core.Prepare("DELETE FROM Formations WHERE id=?")
 	if err != nil {
@@ -13,6 +14,7 @@ func (db *DBPortfolio) DeleteFormation(id int) error {
 	return err
 }
 
+// AddFormation is a function used to add an experience based on a Formation struct entered as a parameter
 func (db *DBPortfolio) AddFormation(f Formation) error {
 	stmt, err := db.core.Prepare("INSERT INTO Formations (nom, formation, etablissement, date_debut, date_fin) VALUES (?, ?, ?, ?, ?)")
 	if err != nil {
@@ -24,6 +26,7 @@ func (db *DBPortfolio) AddFormation(f Formation) error {
 	return err
 }
 
+// EditFormation is a function used to edit a formation based on the new value entered as parameters
 func (db *DBPortfolio) EditFormation(f Formation) error {
 	stmt, err := db.core.Prepare("UPDATE Formations SET nom=?, formation=?, etablissement=?, date_debut=?, date_fin=? WHERE id=?")
 	if err != nil {
@@ -35,6 +38,7 @@ func (db *DBPortfolio) EditFormation(f Formation) error {
 	return err
 }
 
+// ReadFormation is a function used to return a formation based on the id used as a parameter
 func (db *DBPortfolio) ReadFormation(id int) (Formation, error) {
 	var f Formation
 
@@ -55,6 +59,7 @@ func (db *DBPortfolio) ReadFormation(id int) (Formation, error) {
 	return f, nil
 }
 
+// GetFormation is a function used to return all formations from the database
 func (db DBPortfolio) GetFormation() ([]Formation, error) {
 	rows, err := db.core.Query("SELECT id, nom,	formation, etablissement, date_debut, date_fin FROM Formations")
 	if err != nil {
