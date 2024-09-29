@@ -19,7 +19,9 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	userCookie, sessErr := r.Cookie("adminSession")
-	fmt.Println(err)
+	if err != nil {
+		fmt.Println(err)
+	}
 
 	uuid, err := uuid.NewV4()
 	if err != nil {
@@ -58,10 +60,8 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 			})
 		}
 		if UserSession[userCookie.Value] {
-			fmt.Println(UserSession[userCookie.Value])
 			http.Redirect(w, r, "http://localhost:8080", http.StatusSeeOther)
 		}
-
 	}
 
 	err = tmpl.Execute(w, UserSession)
