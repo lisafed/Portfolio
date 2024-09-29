@@ -54,3 +54,27 @@ func (db *DBPortfolio) ReadFormation(id int) (Formation, error) {
 
 	return f, nil
 }
+
+func (db DBPortfolio) GetFormation() ([]Formation, error) {
+	rows, err := db.core.Query("SELECT id, nom,	formation, etablissement, date_debut, date_fin FROM Formations")
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var formations []Formation
+	for rows.Next() {
+		var exp Formation
+		err := rows.Scan(&exp.ID, &exp.Nom, &exp.Formation, &exp.Etablissement, &exp.DateDebut, &exp.DateFin)
+		if err != nil {
+			return nil, err
+		}
+		formations = append(formations, exp)
+	}
+
+	if err = rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return formations, nil
+}

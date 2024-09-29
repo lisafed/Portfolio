@@ -2,11 +2,12 @@ package handlers
 
 import (
 	"fmt"
-	"github.com/gofrs/uuid"
 	"html/template"
 	"log"
 	"net/http"
 	"portfolio/go/dbFunc"
+
+	"github.com/gofrs/uuid"
 )
 
 var UserSession = make(map[string]bool)
@@ -57,7 +58,7 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 			})
 		}
 		if UserSession[userCookie.Value] {
-			fmt.Println(UserSession[userCookie.Value] == true)
+			fmt.Println(UserSession[userCookie.Value])
 			http.Redirect(w, r, "http://localhost:8080", http.StatusSeeOther)
 		}
 

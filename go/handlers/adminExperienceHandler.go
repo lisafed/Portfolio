@@ -8,7 +8,7 @@ import (
 )
 
 func AdminExperienceHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("./src/html/Admin-Experience.html")
+	tmpl, err := template.ParseFiles("./src/html/AdminExperience.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -20,14 +20,7 @@ func AdminExperienceHandler(w http.ResponseWriter, r *http.Request) {
 	DateDebut := r.FormValue("dateDebut")
 	DatedeFin := r.FormValue("dateFin")
 
-	fmt.Println(nameUser)
-	fmt.Println(entreprise)
-	fmt.Println(Poste)
-	fmt.Println(DateDebut)
-	fmt.Println(DatedeFin)
-
 	if nameUser != "" && entreprise != "" && Poste != "" && DateDebut != "" && DatedeFin != "" {
-		fmt.Print("if")
 		db.AddExperience(dbFunc.Experience{Nom: nameUser, Entreprise: entreprise, Poste: Poste, DateDebut: DateDebut, DateFin: DatedeFin})
 
 	}
@@ -35,8 +28,6 @@ func AdminExperienceHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(UserLogged.DataExperienceList)
-
 	err = tmpl.Execute(w, UserLogged)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio - Administration</title>
+    <link rel="stylesheet" href="../../../css/Admin.css">
+</head>
+
+<body class="light-mode">
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Mon Portfolio</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about">À Propos</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#testimonials">Témoignages</a></li>
+                <li><a href="#contact">Contact</a></li>
+                {{ if not .IsUserLogged }}
+                <li><a href="/login" class="btn-login">Connexion</a></li>
+                {{ else }}
+                {{ end }}
+            </ul>
+            <button id="theme-toggle" class="theme-toggle">Mode Sombre</button>
+        </nav>
+    </header>
+
+    <section class="admin-page">
+        <ul class="list-admin">
+            <li id="title-list">Menu</li>
+            <li><a href="/admin/experience">Experience</a></li>
+            <li><a href="/admin/project">Projets</a></li>
+            <li><a href="/admin/formation">Formations</a></li>
+        </ul>
+        
+        <div class="Modif"> 
+            <div class="modif-experience">
+                    <form method="POST">
+                        <p>Formation : {{.DataFormation.Nom}}</p><br>
+                        <label for="nom">Nom du Projet:</label><br>
+                        <input type="text" name="nomDeFormation"  placeholder="{{.DataFormation.Nom}}" required><br>
+                        <label for="formation">Formation :</label><br>
+                        <input name="formation" placeholder="{{.DataFormation.Formation}}"required></input><br>
+                        <label for="etablissement">Etablissement :</label><br>
+                        <input type="text" name="etablissement" placeholder="{{.DataFormation.Etablissement}}"><br>
+                        <label for="poste">Date de début :</label><br>
+                        <input type="date" name="dateDeDebut" placeholder="{{.DataFormation.DateDebut}}"><br>
+                        <label for="poste">Date de fin :</label><br>
+                        <input type="date" name="dateDeFin" placeholder="{{.DataFormation.DateFin}}"><br>
+                        <input type="submit" value="Modifier" name="editbutton" class="custom-button"><br>
+                    </form>
+                    <form method="post">
+                        <input class="custom-button" type="submit" value="Supprimer" name="DelButton"><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2023 Mon Portfolio. Tous droits réservés.</p>
+    </footer>
+    <script src="../js/admin.js"></script>
+</body>
+</html>

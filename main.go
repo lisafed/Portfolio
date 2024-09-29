@@ -29,10 +29,17 @@ func (s *webserver) Router() {
 	s.core.HandleFunc("/experience/", handlers.ExperienceHandler)
 	s.core.HandleFunc("/formation/", handlers.FormationHandler)
 	s.core.HandleFunc("/{notfound}", handlers.PageNotFoundHandler)
+	s.core.HandleFunc("/admin", handlers.AdminHandler)
+	s.core.HandleFunc("/admin/experience", handlers.AdminExperienceHandler)
+	s.core.HandleFunc("/admin/experience/{id}/", handlers.AdminEditExperienceHandler)
+	s.core.HandleFunc("/admin/project", handlers.AdminProjectHandler)
+	s.core.HandleFunc("/admin/project/{id}", handlers.AdminEditProjectHandler)
+	s.core.HandleFunc("/admin/formation", handlers.AdminFormationHandler)
+	s.core.HandleFunc("/admin/formation/{id}", handlers.AdminEditFormationHandler)
 
-	s.core.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("./src/css"))))
-	s.core.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("./src/img"))))
-	s.core.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("./src/js"))))
+	s.core.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("./src/css/"))))
+	s.core.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("./src/img/"))))
+	s.core.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("./src/js/"))))
 	fmt.Printf("http://localhost:%d \n", s.port)
 }
 
